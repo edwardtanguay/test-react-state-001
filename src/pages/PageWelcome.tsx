@@ -20,11 +20,18 @@ export const PageWelcome = () => {
 
 			<div className="example">
 				<h2>Example 2</h2>
-				<div className="flex gap-1 items-center">
-					<p className="text-xl">Password:</p>
-					<input type="password" className="border border-slate-300 rounded-md px-2 py-1" />
-					<button>Login</button>
-				</div>
+				{isOnline ? (
+					<p className="text-xl">Enjoy the site.</p>
+				) : (
+					<div className="flex gap-1 items-center">
+						<p className="text-xl">Password:</p>
+						<input
+							type="password"
+							className="border border-slate-300 rounded-md px-2 py-1"
+						/>
+						<button>Login</button>
+					</div>
+				)}
 			</div>
 		</>
 	);
