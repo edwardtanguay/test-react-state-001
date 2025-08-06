@@ -3,11 +3,17 @@ import { useState } from "react";
 export const PageWelcome = () => {
 	const [isOnline, setIsOnline] = useState(false);
 	const [thePassword, setThePassword] = useState("");
+	const [isFormDisabled, setIsFormDisabled] = useState(false);
+
 
 	const handleLoginButton = () => {
 		if (thePassword === "fantastic") {
 			setIsOnline(true);
 		}
+	}
+
+	const handleDisableForm = () => {
+		setIsFormDisabled(!isFormDisabled)
 	}
 
 	return (
@@ -43,6 +49,15 @@ export const PageWelcome = () => {
 					</div>
 				)}
 			</div>
+
+			<div className="example">
+				<h2>Example 3</h2>
+				<div className="flex gap-1 items-center">
+					<input type="checkbox" id="disableForm" onClick={handleDisableForm}/>
+					<label htmlFor="disableForm">Disable form</label>
+				</div>
+			</div>
+
 		</>
 	);
 };
