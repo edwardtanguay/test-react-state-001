@@ -19,7 +19,7 @@ export const PageWelcome = () => {
 						Change online status
 					</button>
 
-					<p className="text-xl">
+					<p className={`text-xl ${isOnline ? 'userIsOnline' : 'userIsOffline'}`}>
 						User is {isOnline ? "online" : "offline"}.
 					</p>
 				</div>
@@ -38,7 +38,8 @@ export const PageWelcome = () => {
 							onChange={(e) => setThePassword(e.target.value)}
 							className="border border-slate-300 rounded-md px-2 py-1"
 						/>
-						<button onClick={handleLoginButton}>Login</button>
+						<button className={`${thePassword.length < 8 ? 'disabled' : ''}`} disabled={thePassword.length < 8} onClick={handleLoginButton}>Login</button>
+
 					</div>
 				)}
 			</div>
