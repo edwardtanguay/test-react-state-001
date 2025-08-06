@@ -2,6 +2,13 @@ import { useState } from "react";
 
 export const PageWelcome = () => {
 	const [isOnline, setIsOnline] = useState(false);
+	const [thePassword, setThePassword] = useState("");
+
+	const handleLoginButton = () => {
+		if (thePassword === "fantastic") {
+			setIsOnline(true);
+		}
+	}
 
 	return (
 		<>
@@ -27,9 +34,11 @@ export const PageWelcome = () => {
 						<p className="text-xl">Password:</p>
 						<input
 							type="password"
+							value={thePassword}
+							onChange={(e) => setThePassword(e.target.value)}
 							className="border border-slate-300 rounded-md px-2 py-1"
 						/>
-						<button>Login</button>
+						<button onClick={handleLoginButton}>Login</button>
 					</div>
 				)}
 			</div>
